@@ -132,8 +132,7 @@ export default async function CardsPage({ searchParams }: { searchParams: { patt
     cards = cards.filter(c => c.problem_title.toLowerCase().includes(q))
   }
 
-  const allPatterns = [...new Set((data ?? []).flatMap((c: Card) => c.pattern_tags ?? []))]
-
+  const allPatterns = Array.from(new Set((data ?? []).flatMap((c: Card) => c.pattern_tags ?? [])))
   return (
     <div>
       <div style={{ marginBottom: 24 }}>
