@@ -116,7 +116,6 @@ function EssenceCard({ card }: { card: Card }) {
 export default async function CardsPage({ searchParams }: { searchParams: { pattern?: string; difficulty?: string; q?: string } }) {
   const supabase = createClient()
   const { data: { user } } = await supabase.auth.getUser()
-  if (!user) redirect('/login')
 
   const { data } = await supabase
     .from('cards')

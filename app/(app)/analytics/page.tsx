@@ -7,7 +7,6 @@ import AnalyticsCharts from '@/components/AnalyticsCharts'
 export default async function AnalyticsPage() {
   const supabase = createClient()
   const { data: { user } } = await supabase.auth.getUser()
-  if (!user) redirect('/login')
 
   const [{ data: cards }, { data: reviews }] = await Promise.all([
     supabase.from('cards').select('*').eq('user_id', user.id).eq('card_status', 'ready'),
