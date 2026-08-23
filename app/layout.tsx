@@ -1,20 +1,14 @@
-import type { Metadata } from 'next'
-import './globals.css'
+import Sidebar from '@/components/Sidebar'
 
-export const metadata: Metadata = {
-  title: 'LeetLog — Stop Forgetting What You Solve',
-  description: 'Auto-track your LeetCode solves, get AI revision cards, never forget a pattern.',
-}
+export const dynamic = 'force-dynamic'
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="bg-bg text-white antialiased">{children}</body>
-    </html>
+    <div style={{ display: 'flex', minHeight: '100vh' }}>
+      <Sidebar />
+      <main style={{ flex: 1, padding: 32, overflowY: 'auto', marginLeft: 220 }}>
+        {children}
+      </main>
+    </div>
   )
 }
