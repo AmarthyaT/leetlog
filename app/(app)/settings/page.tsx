@@ -89,7 +89,7 @@ export default function SettingsPage() {
     </div>
   )
 
-  const Label = ({ children, sub }: { children: React.ReactNode; sub?: string }) => (
+  const Label = ({ children, sub }: { children: React.ReactNode; sub?: React.ReactNode }) => (
     <div style={{ marginBottom: 8 }}>
       <label style={{ fontSize: 14, fontWeight: 600, color: '#fafafa' }}>{children}</label>
       {sub && <p style={{ color: '#71717a', fontSize: 12, margin: '2px 0 0' }}>{sub}</p>}
